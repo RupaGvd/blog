@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.css' %}">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="header">
+            {% block header %}
+                {% include 'blog/navbar.html' %}
+            {% endblock header %}
+        </div>
+        <div class="main">
+            {% block main %}
+            {% endblock main %}
+        </div>
+        <div class="footer">
+            {% block footer %}
+            {% endblock footer %}
+        </div>
+    </div>
+</body>
+<script src="{% static 'blog/js/bootstrap.js' }"></script>
+<script src="{% static 'blog/js/popper.js' }"></script>
+<script src="{% static 'blog/js/jquery.js' }"></script>
+</html>

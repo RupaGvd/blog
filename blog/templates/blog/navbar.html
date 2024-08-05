@@ -1,0 +1,41 @@
+<nav class="navbar bg-primary" data-bs-theme="dark">
+  <nav class="navbar navbar-expand-lg" style="width: 100%;">
+    <div class="container-fluid">
+      <a class="navbar-brand fs-3" href="{% url 'blog:home' %}">Myblog</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active fs-4" aria-current="page" href="#">About</a>
+          </li> 
+          {% if request.user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link active fs-4" aria-current="page" href="{% url 'blog:profile' %}">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active fs-4" aria-current="page" href="{% url 'blog:dashboard' %}">Dashboard</a>
+              </li>
+          {% endif%}
+          </div>
+        </ul>
+      </div>  
+      <div class="text-end" style="list-style-type: none; display:flex;">
+        {% if request.user.is_authenticated %}
+        <li>
+          <a href="{% url 'blog:login' %}"><button type="button" class="btn btn-dark" style="padding-right: 50px; margin-right: 30px;">Logout</button></a>
+        </li>
+        {% else %}
+        <li>
+          <a href="{% url 'blog:logout' %}"><button type="button" class="btn btn-dark" style="padding-right: 50px; margin-right: 30px;">Login</button></a>
+        </li>
+        {% endif%}
+       
+      </div>
+
+    </div>
+  
+  </nav>
+ 
+</nav>
