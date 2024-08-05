@@ -8,4 +8,3 @@ class Signupform(UserCreationForm):
         model = User
         fields = ['username','first_name','last_name','email']
         lables = {'username':'User Name','first_name':'First Name','last_name':'Last Name','email':'Email Address'}
-        widget  = {'username':forms.TextInput(attrs={'blank':True})}
