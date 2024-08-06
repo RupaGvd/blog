@@ -2,12 +2,17 @@
 {% block main %}
  <div class="card" style="width: 55%; justify-content: center; align-items: center; margin-left: auto; margin-right: auto;"  >
     {% for post in posts %}
-        <img src="{{post.image.url}}" alt=""  class="card-image-top" height="250px" width="500px">
+      <div style="border:2px solid black">  
+        <img src="{{post.img.url}}" alt="" height="250px" width="500px" style="margin-left: auto; margin-right: auto;" > 
         <div class="card-body">
             <h5 class="card-title">{{post.title}}</h5>
             <p class="card-text">{{post.desc}}</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button class="btn btn-primary me-md-2" type="button">{{user}}</button>
+            </div>
         </div>
         <h1></h1>
+      </div>
     {% endfor %}
 </div>
 {% endblock main %}

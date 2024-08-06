@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponseRedirect
-from .forms import UserCreationForm,AuthenticationForm,Signupform
+from .forms import UserCreationForm,AuthenticationForm,Signupform,NewPostForm
 from .models import Post
 from django.contrib.auth import login,logout,authenticate
 # Create your views here
@@ -37,7 +37,7 @@ def user_login(request):
 
 def user_logout(request):
     logout(request)
-    return HttpResponseRedirect('/signup')
+    return HttpResponseRedirect('/')
     
 
 def dashboard(request):
@@ -53,3 +53,14 @@ def user_profile(request):
         return render(request,'blog/profile.html')
     else:
         return HttpResponseRedirect('/login')
+    
+def newpost(request):
+    if request.method =='GET':
+        form = NewPostForm()
+    else:
+        form = NewPostForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+    context = {'form':form}
+    return render(request,'blog/newpost.html',context)

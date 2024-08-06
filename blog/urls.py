@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home,user_login,user_signup,dashboard,user_logout,user_profile
+from .views import home,user_login,user_signup,dashboard,user_logout,user_profile,newpost
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -10,7 +10,8 @@ urlpatterns = [
     path('signup',user_signup,name='signup'),
     path('logout',user_logout,name='logout'),
     path('dashboard',dashboard,name='dashboard'),
-    path('profile',user_profile,name='profile')
+    path('profile',user_profile,name='profile'),
+    path('newpost',newpost,name='newpost')
 ]
 
 

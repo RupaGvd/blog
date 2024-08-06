@@ -1,4 +1,5 @@
 {% extends 'blog/base.html' %}
 {% block main %}
-    <h1>This is Dashboard Page</h1>
+   <h1>Dashboard : {{request.user}}</h1>
+   <a href="{% url 'blog:newpost' %}" class="btn btn-success">New Post</a>
 {% endblock main %}
