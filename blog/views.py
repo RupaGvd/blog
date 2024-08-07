@@ -58,7 +58,7 @@ def newpost(request):
     if request.method =='GET':
         form = NewPostForm()
     else:
-        form = NewPostForm(request.POST)
+        form = NewPostForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/')
